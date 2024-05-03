@@ -29,6 +29,9 @@ jobs:
         subscription-id: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
         enable-AzPSSession: true
 
+    - name: create resource group
+      run: az group create --name ${{ secrets.AZURE_RG }} --location westeurope
+      
       # Deploy ARM template
     - name: Run ARM deploy
       uses: azure/arm-deploy@v1
